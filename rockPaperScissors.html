@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Page Title</title>
+
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+	<img id="myBtn" src="rps.png"></button>
+
+	<p> Click the image to play! </p>
+
+<script>
+
+
+// Global Variables.
+      let computerSelection = "";
+
+      let userSelection = "";
+
+
+// Grabs my button from the html, passes to userPlay function.
+      document.getElementById("myBtn").addEventListener("click", userPlay);
+
+
+// userPlay function, gets info, bit of error fixing if need be, passes to computerPlay. ------------------------>
+    function userPlay() {
+
+      userSelection = prompt ("Let's play Rock, Paper, Scissors! Choose one: "); 
+
+
+      userSelection = userSelection.toLowerCase();
+
+// ----------------------------------------------------------------------------------------------
+      if (userSelection != "rock" && userSelection != "paper" && userSelection != "scissors") 
+        {
+
+          alert ("Sorry! Invalid choice, please choose Rock, Paper or Scissors. Try again!")
+
+        }
+
+      else 
+        {
+
+          computerPlay();
+
+        }
+// ----------------------------------------------------------------------------------------------
+      }
+
+
+// computerPlay function, using random number to generate selection, pass to gameResult. ------------------------->
+    function computerPlay() {
+
+      let randomNumber = Math.floor(Math.random() * 4);
+
+// ------------------------------------------------------------
+      if (randomNumber == 1) {
+
+        computerSelection = "Rock";
+
+      }
+
+      else if (computerSelection == 2) {
+
+        computerSelection = "Paper";
+
+      }
+
+      else {
+
+        computerSelection = "Scissors";
+
+      }
+// -------------------------------------------------------------
+
+      gameResult();
+    
+    }
+
+
+// gameResult function, compares the two global variables and alerts user of result. ----------------------------->
+    function gameResult() {
+
+// --------------------------------------------------------------
+      if (userSelection == "rock") {
+
+        if (computerSelection == "Rock"){
+
+          alert("The computer chose: " + computerSelection + "!" + " It's a tie!");
+
+
+        }
+
+        else if (computerSelection == "Paper") {
+
+          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose!");
+
+        }
+
+        else {
+
+          alert("The computer chose: " + computerSelection + "!" + " Yay, you win!");
+
+        }
+
+      }
+
+      else if (userSelection == "paper") {
+
+        if (computerSelection == "Paper"){
+
+          alert("The computer chose: " + computerSelection + "!" + " It's a tie!");
+
+
+        }
+
+        else if (computerSelection == "Scissors") {
+
+          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose!");
+
+        }
+
+        else {
+
+          alert("The computer chose: " + computerSelection + "!" + " Yay, you win!");
+
+        }
+
+      }
+
+      else if (userSelection == "scissors") {
+
+        if (computerSelection == "Scissors"){
+
+          alert("The computer chose: " + computerSelection + "!" + " It's a tie!");
+
+
+        }
+
+        else if (computerSelection == "Rock") {
+
+          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose!");
+
+        }
+
+        else {
+
+          alert("The computer chose: " + computerSelection + "!" + " Yay, you win!");
+
+        }
+
+      }
+
+
+
+
+
+
+
+    }
+
+</script>
+
+</body>
+
+</html>
