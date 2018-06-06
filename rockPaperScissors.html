@@ -25,6 +25,10 @@
 
       let userSelection = "";
 
+      let userWins = 0;
+
+      let computerWins =0;
+
 
 // Grabs my button from the html, passes to userPlay function.
       document.getElementById("myBtn").addEventListener("click", userPlay);
@@ -33,7 +37,7 @@
 // userPlay function, gets info, bit of error fixing if need be, passes to computerPlay. ------------------------>
     function userPlay() {
 
-      userSelection = prompt ("Let's play Rock, Paper, Scissors! Choose one: "); 
+      userSelection = prompt ("Let's play some Rock, Paper, Scissors. Choose one: "); 
 
 
       userSelection = userSelection.toLowerCase();
@@ -53,22 +57,23 @@
 
         }
 // ----------------------------------------------------------------------------------------------
+
       }
 
 
 // computerPlay function, using random number to generate selection, pass to gameResult. ------------------------->
     function computerPlay() {
 
-      let randomNumber = Math.floor(Math.random() * 4);
+      let randomNumber = Math.random();
 
 // ------------------------------------------------------------
-      if (randomNumber == 1) {
+      if (randomNumber < 0.34) {
 
         computerSelection = "Rock";
 
       }
 
-      else if (computerSelection == 2) {
+      else if (computerSelection <= 0.67) {
 
         computerSelection = "Paper";
 
@@ -89,7 +94,7 @@
 // gameResult function, compares the two global variables and alerts user of result. ----------------------------->
     function gameResult() {
 
-// --------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
       if (userSelection == "rock") {
 
         if (computerSelection == "Rock"){
@@ -101,13 +106,17 @@
 
         else if (computerSelection == "Paper") {
 
-          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose!");
+          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose! Computer gets a point.");
+
+          computerWins++;
 
         }
 
         else {
 
-          alert("The computer chose: " + computerSelection + "!" + " Yay, you win!");
+          alert("The computer chose: " + computerSelection + "!" + " Yay, you win a point!");
+
+          userWins++;
 
         }
 
@@ -124,13 +133,17 @@
 
         else if (computerSelection == "Scissors") {
 
-          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose!");
+          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose! Computer gets a point.");
+
+          computerWins++;
 
         }
 
         else {
 
-          alert("The computer chose: " + computerSelection + "!" + " Yay, you win!");
+          alert("The computer chose: " + computerSelection + "!" + " Yay, you win a point!");
+
+          userWins++;
 
         }
 
@@ -147,22 +160,52 @@
 
         else if (computerSelection == "Rock") {
 
-          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose!");
+          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose! Computer gets a point.");
+
+          computerWins++;
 
         }
 
         else {
 
-          alert("The computer chose: " + computerSelection + "!" + " Yay, you win!");
+          alert("The computer chose: " + computerSelection + "!" + " Yay, you win a point!");
+
+          userWins++;
 
         }
 
       }
+// -------------------------------------------------------------------------------------------------
+// Games out of 5, set to exit upon winner or reply if there's a need.
+	  
+
+      do {
+
+      	if (userWins == 3) {
+
+      		alert("There it is, 3 points for you! You win!");
+
+      		exit = true;
 
 
+      	}
 
+      	else if (computerWins == 3) {
 
+      		alert("There it is, 3 points for the computer! You lose!");
 
+      		exit = true;
+
+      	}
+
+      	else {
+
+      		userPlay();
+
+      	}
+	}
+
+	while (exit = false);
 
 
     }
