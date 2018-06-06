@@ -2,6 +2,8 @@ p {
 
 	padding-left: 44%;
 
+	padding-top: 2%;
+
 	font-family: comic-sans;
 
 
@@ -14,11 +16,16 @@ img {
 
 	margin-top: 10%;
 
-	border: solid grey 2px;
+	position: absolute;
 
-	border-radius: 5px;
+	
 
-	padding: 10px;
 
+
+}
+
+img:hover {
+
+padding-top: 1px;
 
 }
