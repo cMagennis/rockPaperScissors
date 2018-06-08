@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Page Title</title>
+
+  <link rel="stylesheet" href="styleVariation.css">
+
+
+</head>
+
+<body>
+
+<div id="rockPaperScissors"> 
+
+  <ul>
+	<img id="myRockBtn" src="rock.png"></button>
+
+
+
+  <img id="myPaperBtn" src="paper.png"></button>
+
+
+
+  <img id="myScissorsBtn" src="scissors.png"></button>
+
+</ul>
+
+
+	
+<script>
+
+
+// Global Variables.
+      let computerSelection = "";
+
+      let userSelection = "";
+
+      let userWins = 0;
+
+      let computerWins =0;
+
+
+// Grabs my buttons from the html, passes to userPlay function.
+      document.getElementById("myRockBtn").addEventListener("click", userRock);
+      document.getElementById("myPaperBtn").addEventListener("click", userPaper);
+      document.getElementById("myScissorsBtn").addEventListener("click", userScissors);
+
+
+// various functions depending on which button was clicked on the site. 
+
+    function userRock() {
+
+      userSelection = "rock";
+
+      alert("Let's play out of 5, so far you have " + userWins + " points. The computer has " + computerWins + ".");
+
+      computerPlay();
+
+    }
+
+    function userPaper() {
+
+      userSelection = "paper";
+
+      alert("Let's play out of 5, so far you have " + userWins + " points. The computer has " + computerWins + ".");
+
+      computerPlay();
+
+    }
+
+    function userScissors() {
+
+      userSelection = "scissors";
+
+      alert("Let's play out of 5, so far you have " + userWins + " points. The computer has " + computerWins + ".");
+
+      computerPlay();
+
+    }
+
+
+// computerPlay function, using random number to generate selection, pass to gameResult. ------------------------->
+    function computerPlay() {
+
+      let randomNumber = Math.random();
+
+// ------------------------------------------------------------
+      if (randomNumber < 0.34) {
+
+        computerSelection = "Rock";
+
+      }
+
+      else if (computerSelection <= 0.67) {
+
+        computerSelection = "Paper";
+
+      }
+
+      else {
+
+        computerSelection = "Scissors";
+
+      }
+// -------------------------------------------------------------
+
+      gameResult();
+    
+    }
+
+
+// gameResult function, compares the two global variables and alerts user of result. ----------------------------->
+    function gameResult() {
+
+// --------------------------------------------------------------------------------------------
+      if (userSelection == "rock") {
+
+        if (computerSelection == "Rock"){
+
+          alert("The computer chose: " + computerSelection + "!" + " It's a tie!");
+
+
+        }
+
+        else if (computerSelection == "Paper") {
+
+          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose! Computer gets a point.");
+
+          computerWins++;
+
+        }
+
+        else {
+
+          alert("The computer chose: " + computerSelection + "!" + " Yay, you win a point!");
+
+          userWins++;
+
+        }
+
+      }
+
+      else if (userSelection == "paper") {
+
+        if (computerSelection == "Paper"){
+
+          alert("The computer chose: " + computerSelection + "!" + " It's a tie!");
+
+
+        }
+
+        else if (computerSelection == "Scissors") {
+
+          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose! Computer gets a point.");
+
+          computerWins++;
+
+        }
+
+        else {
+
+          alert("The computer chose: " + computerSelection + "!" + " Yay, you win a point!");
+
+          userWins++;
+
+        }
+
+      }
+
+      else if (userSelection == "scissors") {
+
+        if (computerSelection == "Scissors"){
+
+          alert("The computer chose: " + computerSelection + "!" + " It's a tie!");
+
+
+        }
+
+        else if (computerSelection == "Rock") {
+
+          alert("The computer chose: " + computerSelection + "!" + " Sorry, you lose! Computer gets a point.");
+
+          computerWins++;
+
+        }
+
+        else {
+
+          alert("The computer chose: " + computerSelection + "!" + " Yay, you win a point!");
+
+          userWins++;
+
+        }
+
+      }
+// -------------------------------------------------------------------------------------------------
+// Games out of 5, set to exit upon winner or reply if there's a need.
+	  
+
+      do {
+
+      	if (userWins == 3) {
+
+      		alert("There it is, 3 points for you! You win!");
+
+      		exit = true;
+
+
+      	}
+
+      	else if (computerWins == 3) {
+
+      		alert("There it is, 3 points for the computer! You lose!");
+
+      		exit = true;
+
+      	}
+
+      	else {
+
+      		userPlay();
+
+      	}
+	}
+
+	while (exit = false);
+
+
+    }
+
+</script>
+
+</body>
+
+</html>
